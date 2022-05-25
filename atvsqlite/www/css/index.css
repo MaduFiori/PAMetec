@@ -1,0 +1,24 @@
+.app{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+    font-weight: bolder;
+}
+h1{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 100px;
+}
+
+#btnInserir{
+    font-weight: bolder;
+    font-size: 15px;
+    font-family: 'Lucida Sans';
+    border-color: black;
+}
+#btnListar{
+    font-weight: bolder;
+    font-size: 15px;
+    font-family: 'Lucida Sans';
+    border-color: black;
+}
