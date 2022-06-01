@@ -1,0 +1,59 @@
+Maria Eduarda Fiori
+
+create database biblioteca;
+use biblioteca;
+
+create table colegas(
+	idcolegas int primary key auto_increment,
+	nome varchar(255) not null,
+	apelido varchar(255),'
+);
+
+insert into colegas (nome,apelido),
+values ('David Soares','negrão');
+
+insert into colegas (nome,apelido),
+values ('Julia','alface');
+
+insert into colegas (nome,apelido),
+values ('Gui Leo','selinho');
+
+create table livros(
+	id int primary key auto_increment,
+	autor varchar(255) not null,
+	titulo varchar(255) not null,
+	editora varchar(255) not null,
+	ano int not null,
+	dataemp date,
+	idcolegas int not null,
+	foreign key (idcolegas) references (idcolegas)
+);
+
+insert into livros (autor,titulo,editora,ano)
+values('Aluisio Azevedo','O cortiço','FTD eduacação', '2011');
+
+insert into livros(autor,titulo,editora,ano)
+values('Aluisio Azevedo','O cortiço','Ciranda Cultura', '2017');
+
+insert into livros (autor,titulo,editora,ano)
+values ('Aluisio Azevedo','O cortiço','Principis 3°edição', '2019');
+
+insert into livros (autor,titulo,editora,ano)
+values ('Maurice Leblanc','Arsene Lupin - o ladrão de casaca','Principis', '2021');
+
+insert into livros (autor,titulo,editora,ano)
+values ('Maurice Leblanc','Arsene Lupin - o ladrão de casaca','Clássicos Zahar', '2016');
+
+insert into livros (autor,titulo,editora,ano)
+values ('Maurice Leblanc','Arsene Lupin - o ladrão de casaca','Tricaju', '2021');
+
+
+----------------------------------------------------------------------------------------------------------------
+
+select  
+livros.titulo, livros.editora, livros.ano,
+date_format(livros.dataemp, '%d/%m/%Y') as Data_emp,
+colegas.nome as Nome, colegas.apelido as Apelido
+from livros inner join colegas
+on livros.colega = colega.livros;
+
