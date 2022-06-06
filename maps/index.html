@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+        
+    </style>
+
+    <script>
+
+        const onLocationSucess = function(geo){
+            console.log("const onLocationSucess = function(){...");
+            console.log(geo);
+
+        }
+
+        const onErrorLocation = function(erro){
+            console.log("const onErrorLocation = function(){...");
+            console.log(erro);
+        }
+
+        
+        const getGeoposition = function(){
+            console.log("const getGeoposition = function(){...");
+
+                if(navigator.geolocation){
+                    console.log("Navegador suporta a geolocalização");
+
+                    navigator.geolocation.getCurrentPosition(onLocationSucess, onErrorLocation);
+                } else {
+                    throw new Error("Seu navegador não suporta geolocalização");
+                }
+            }
+
+            carregamento = function(){
+                    console.log("Essa função roda após o processamento da página");
+                    document.getElementById("enviaInformacoes")
+                    .addEventListener('click',getGeoposition);             
+            }
+        
+    </script>
+
+</head>
+<body onload="carregamento();">
+    <h1>Obtendo a geolocalização do dispositivo</h1>
+    <br><br>
+    Latitude:
+    <br><br>
+    <input type="text" id="latitude"></input>
+    <br><br>
+    Longitude:
+    <br><br>
+    <input type="text" id="longitude">
+    <br><button type="button" id="enviaInformacoes">Enviar</button>
+    <br><br>
+</body>
+</html>
